@@ -17,6 +17,7 @@ import { NextjsDistribution } from './NextjsDistribution';
 import { NextjsDomain, NextjsDomainProps } from './NextjsDomain';
 import { NextjsImage } from './NextjsImage';
 import { NextjsInvalidation } from './NextjsInvalidation';
+import { NextjsLayer } from './NextjsLayer';
 import { NextjsOverrides } from './NextjsOverrides';
 import { NextjsRevalidation } from './NextjsRevalidation';
 import { NextjsServer } from './NextjsServer';
@@ -145,6 +146,10 @@ export class Nextjs extends Construct {
    * Revalidation handler and queue.
    */
   public revalidation: NextjsRevalidation;
+  /**
+   * Lambda layer.
+   */
+  public nextLayer: NextjsLayer;
 
   public lambdaFunctionUrl!: lambda.FunctionUrl;
   public imageOptimizationLambdaFunctionUrl!: lambda.FunctionUrl;
@@ -163,6 +168,11 @@ export class Nextjs extends Construct {
       ...props.overrides?.nextjs?.nextjsBuildProps,
     });
 
+    // deploy lambda layer
+    this.nextLayer = new NextjsLayer(this, 'Layer', {
+      overrides: props.overrides?.nextjsLayer,
+    });
+
     // deploy nextjs static assets to s3
     this.staticAssets = new NextjsStaticAssets(this, 'StaticAssets', {
       basePath: props.basePath,
@@ -174,6 +184,7 @@ export class Nextjs extends Construct {
 
     this.serverFunction = new NextjsServer(this, 'Server', {
       nextBuild: this.nextBuild,
+      nextLayer: this.nextLayer,
       staticAssetBucket: this.staticAssets.bucket,
       overrides: props.overrides?.nextjsServer,
       ...props.overrides?.nextjs?.nextjsServerProps,
@@ -182,6 +193,7 @@ export class Nextjs extends Construct {
     this.imageOptimizationFunction = new NextjsImage(this, 'Image', {
       bucket: props.imageOptimizationBucket || this.bucket,
       nextBuild: this.nextBuild,
+      nextLayer: this.nextLayer,
       overrides: props.overrides?.nextjsImage,
       ...props.overrides?.nextjs?.nextjsImageProps,
     });
@@ -189,6 +201,7 @@ export class Nextjs extends Construct {
     // build revalidation queue and handler function
     this.revalidation = new NextjsRevalidation(this, 'Revalidation', {
       nextBuild: this.nextBuild,
+      nextLayer: this.nextLayer,
       serverFunction: this.serverFunction,
       overrides: props.overrides?.nextjsRevalidation,
       ...props.overrides?.nextjs?.nextjsRevalidationProps,

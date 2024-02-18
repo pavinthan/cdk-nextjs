@@ -75,3 +75,4 @@ tsconfig.json
 !/src/generated-structs/OptionalNextjsDomainProps.ts
 !/src/generated-structs/OptionalNextjsDistributionProps.ts
 !/src/generated-structs/OptionalNextjsInvalidationProps.ts
+!/src/generated-structs/OptionalNextjsLayerProps.ts

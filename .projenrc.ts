@@ -202,7 +202,12 @@ new ProjenStruct(project, {
 })
   .mixin(Struct.fromFqn('cdk-nextjs-standalone.NextjsInvalidationProps'))
   .allOptional();
-
+new ProjenStruct(project, {
+  name: 'OptionalNextjsLayerProps',
+  filePath: getFilePath('OptionalNextjsLayerProps'),
+})
+  .mixin(Struct.fromFqn('cdk-nextjs-standalone.NextjsLayerProps'))
+  .allOptional();
 // const e2eTestsWorkflow = project.github?.addWorkflow('e2e-tests');
 // e2eTestsWorkflow?.on({ pullRequest: { branches: ['main'] } });
 // e2eTestsWorkflow?.addJob('run-e2e-tests', {

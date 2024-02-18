@@ -12,6 +12,7 @@ import { OptionalAssetProps, OptionalFunctionProps, OptionalNextjsBucketDeployme
 import { NextjsProps } from './Nextjs';
 import { NextjsBucketDeployment } from './NextjsBucketDeployment';
 import { NextjsBuild } from './NextjsBuild';
+import { NextjsLayer } from './NextjsLayer';
 import { getCommonFunctionProps } from './utils/common-lambda-props';
 import { createArchive } from './utils/create-archive';
 
@@ -49,6 +50,10 @@ export interface NextjsServerProps {
    * Static asset bucket. Function needs bucket to read from cache.
    */
   readonly staticAssetBucket: IBucket;
+  /**
+   * @see {@link NextjsLayer}
+   */
+  readonly nextLayer: NextjsLayer;
 }
 
 /**
@@ -134,7 +139,7 @@ export class NextjsServer extends Construct {
   private createFunction(asset: Asset) {
     // until after the build time env vars in code zip asset are substituted
     const fn = new Function(this, 'Fn', {
-      ...getCommonFunctionProps(this),
+      ...getCommonFunctionProps(this, [this.props.nextLayer.layerVersion]),
       code: Code.fromBucket(asset.bucket, asset.s3ObjectKey),
       handler: 'index.handler',
       description: 'Next.js Server Handler',

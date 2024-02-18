@@ -3,6 +3,7 @@ import { IBucket } from 'aws-cdk-lib/aws-s3';
 import { Construct } from 'constructs';
 import { OptionalFunctionProps } from './generated-structs';
 import type { NextjsBuild } from './NextjsBuild';
+import { NextjsLayer } from './NextjsLayer';
 import { getCommonFunctionProps } from './utils/common-lambda-props';
 
 export interface NextjsImageOverrides {
@@ -26,6 +27,10 @@ export interface NextjsImageProps {
    * Override props for every construct.
    */
   readonly overrides?: NextjsImageOverrides;
+  /**
+   * @see {@link NextjsLayer}
+   */
+  readonly nextLayer: NextjsLayer;
 }
 
 /**
@@ -33,9 +38,9 @@ export interface NextjsImageProps {
  */
 export class NextjsImage extends LambdaFunction {
   constructor(scope: Construct, id: string, props: NextjsImageProps) {
-    const { lambdaOptions, bucket } = props;
+    const { lambdaOptions, bucket, nextLayer } = props;
 
-    const commonFnProps = getCommonFunctionProps(scope);
+    const commonFnProps = getCommonFunctionProps(scope, [nextLayer.layerVersion]);
     super(scope, id, {
       ...commonFnProps,
       code: Code.fromAsset(props.nextBuild.nextImageFnDir),

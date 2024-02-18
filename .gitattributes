@@ -34,6 +34,7 @@
 /src/generated-structs/OptionalNextjsDomainProps.ts linguist-generated
 /src/generated-structs/OptionalNextjsImageProps.ts linguist-generated
 /src/generated-structs/OptionalNextjsInvalidationProps.ts linguist-generated
+/src/generated-structs/OptionalNextjsLayerProps.ts linguist-generated
 /src/generated-structs/OptionalNextjsRevalidationProps.ts linguist-generated
 /src/generated-structs/OptionalNextjsServerProps.ts linguist-generated
 /src/generated-structs/OptionalNextjsStaticAssetsProps.ts linguist-generated

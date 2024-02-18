@@ -1,6 +1,7 @@
 export { NextjsStaticAssets, NextjsStaticAssetsProps, NextjsStaticAssetOverrides } from './NextjsStaticAssets';
 export { NextjsRevalidation, NextjsRevalidationProps, NextjsRevalidationOverrides } from './NextjsRevalidation';
 export { NextjsBuild, NextjsBuildProps } from './NextjsBuild';
+export { NextjsLayer, NextjsLayerProps, NextjsLayerOverrides } from './NextjsLayer';
 export { EnvironmentVars, NextjsServer, NextjsServerProps, NextjsServerOverrides } from './NextjsServer';
 export { NextjsImage, NextjsImageProps, NextjsImageOverrides } from './NextjsImage';
 export {

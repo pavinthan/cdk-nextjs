@@ -203,6 +203,7 @@ Any object.
 | <code><a href="#cdk-nextjs-standalone.Nextjs.property.imageOptimizationLambdaFunctionUrl">imageOptimizationLambdaFunctionUrl</a></code> | <code>aws-cdk-lib.aws_lambda.FunctionUrl</code> | *No description.* |
 | <code><a href="#cdk-nextjs-standalone.Nextjs.property.lambdaFunctionUrl">lambdaFunctionUrl</a></code> | <code>aws-cdk-lib.aws_lambda.FunctionUrl</code> | *No description.* |
 | <code><a href="#cdk-nextjs-standalone.Nextjs.property.nextBuild">nextBuild</a></code> | <code><a href="#cdk-nextjs-standalone.NextjsBuild">NextjsBuild</a></code> | Built NextJS project output. |
+| <code><a href="#cdk-nextjs-standalone.Nextjs.property.nextLayer">nextLayer</a></code> | <code><a href="#cdk-nextjs-standalone.NextjsLayer">NextjsLayer</a></code> | Lambda layer. |
 | <code><a href="#cdk-nextjs-standalone.Nextjs.property.revalidation">revalidation</a></code> | <code><a href="#cdk-nextjs-standalone.NextjsRevalidation">NextjsRevalidation</a></code> | Revalidation handler and queue. |
 | <code><a href="#cdk-nextjs-standalone.Nextjs.property.serverFunction">serverFunction</a></code> | <code><a href="#cdk-nextjs-standalone.NextjsServer">NextjsServer</a></code> | The main NextJS server handler lambda function. |
 | <code><a href="#cdk-nextjs-standalone.Nextjs.property.staticAssets">staticAssets</a></code> | <code><a href="#cdk-nextjs-standalone.NextjsStaticAssets">NextjsStaticAssets</a></code> | Asset deployment to S3. |
@@ -299,6 +300,18 @@ public readonly nextBuild: NextjsBuild;
 - *Type:* <a href="#cdk-nextjs-standalone.NextjsBuild">NextjsBuild</a>
 
 Built NextJS project output.
+
+---
+
+##### `nextLayer`<sup>Required</sup> <a name="nextLayer" id="cdk-nextjs-standalone.Nextjs.property.nextLayer"></a>
+
+```typescript
+public readonly nextLayer: NextjsLayer;
+```
+
+- *Type:* <a href="#cdk-nextjs-standalone.NextjsLayer">NextjsLayer</a>
+
+Lambda layer.
 
 ---
 
@@ -2185,6 +2198,118 @@ The tree node.
 ---
 
 
+### NextjsLayer <a name="NextjsLayer" id="cdk-nextjs-standalone.NextjsLayer"></a>
+
+Build a lambda function from a NextJS application to handle server-side rendering, API routes, and image optimization.
+
+#### Initializers <a name="Initializers" id="cdk-nextjs-standalone.NextjsLayer.Initializer"></a>
+
+```typescript
+import { NextjsLayer } from 'cdk-nextjs-standalone'
+
+new NextjsLayer(scope: Construct, id: string, props: NextjsLayerProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-nextjs-standalone.NextjsLayer.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-nextjs-standalone.NextjsLayer.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-nextjs-standalone.NextjsLayer.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-nextjs-standalone.NextjsLayerProps">NextjsLayerProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-nextjs-standalone.NextjsLayer.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-nextjs-standalone.NextjsLayer.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-nextjs-standalone.NextjsLayer.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#cdk-nextjs-standalone.NextjsLayerProps">NextjsLayerProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-nextjs-standalone.NextjsLayer.toString">toString</a></code> | Returns a string representation of this construct. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-nextjs-standalone.NextjsLayer.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-nextjs-standalone.NextjsLayer.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-nextjs-standalone.NextjsLayer.isConstruct"></a>
+
+```typescript
+import { NextjsLayer } from 'cdk-nextjs-standalone'
+
+NextjsLayer.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-nextjs-standalone.NextjsLayer.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-nextjs-standalone.NextjsLayer.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-nextjs-standalone.NextjsLayer.property.layerVersion">layerVersion</a></code> | <code>aws-cdk-lib.aws_lambda.LayerVersion</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-nextjs-standalone.NextjsLayer.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `layerVersion`<sup>Required</sup> <a name="layerVersion" id="cdk-nextjs-standalone.NextjsLayer.property.layerVersion"></a>
+
+```typescript
+public readonly layerVersion: LayerVersion;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.LayerVersion
+
+---
+
+
 ### NextjsRevalidation <a name="NextjsRevalidation" id="cdk-nextjs-standalone.NextjsRevalidation"></a>
 
 Builds the system for revalidating Next.js resources. This includes a Lambda function handler and queue system as well as the DynamoDB table and provider function.
@@ -3541,6 +3666,7 @@ const nextjsImageProps: NextjsImageProps = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-nextjs-standalone.NextjsImageProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | The S3 bucket holding application images. |
 | <code><a href="#cdk-nextjs-standalone.NextjsImageProps.property.nextBuild">nextBuild</a></code> | <code><a href="#cdk-nextjs-standalone.NextjsBuild">NextjsBuild</a></code> | *No description.* |
+| <code><a href="#cdk-nextjs-standalone.NextjsImageProps.property.nextLayer">nextLayer</a></code> | <code><a href="#cdk-nextjs-standalone.NextjsLayer">NextjsLayer</a></code> | *No description.* |
 | <code><a href="#cdk-nextjs-standalone.NextjsImageProps.property.lambdaOptions">lambdaOptions</a></code> | <code>aws-cdk-lib.aws_lambda.FunctionOptions</code> | Override function properties. |
 | <code><a href="#cdk-nextjs-standalone.NextjsImageProps.property.overrides">overrides</a></code> | <code><a href="#cdk-nextjs-standalone.NextjsImageOverrides">NextjsImageOverrides</a></code> | Override props for every construct. |
 
@@ -3567,6 +3693,18 @@ public readonly nextBuild: NextjsBuild;
 - *Type:* <a href="#cdk-nextjs-standalone.NextjsBuild">NextjsBuild</a>
 
 > [{@link NextjsBuild }]({@link NextjsBuild })
+
+---
+
+##### `nextLayer`<sup>Required</sup> <a name="nextLayer" id="cdk-nextjs-standalone.NextjsImageProps.property.nextLayer"></a>
+
+```typescript
+public readonly nextLayer: NextjsLayer;
+```
+
+- *Type:* <a href="#cdk-nextjs-standalone.NextjsLayer">NextjsLayer</a>
+
+> [{@link NextjsLayer }]({@link NextjsLayer })
 
 ---
 
@@ -3680,6 +3818,75 @@ Override props for every construct.
 
 ---
 
+### NextjsLayerOverrides <a name="NextjsLayerOverrides" id="cdk-nextjs-standalone.NextjsLayerOverrides"></a>
+
+#### Initializer <a name="Initializer" id="cdk-nextjs-standalone.NextjsLayerOverrides.Initializer"></a>
+
+```typescript
+import { NextjsLayerOverrides } from 'cdk-nextjs-standalone'
+
+const nextjsLayerOverrides: NextjsLayerOverrides = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-nextjs-standalone.NextjsLayerOverrides.property.codeLocation">codeLocation</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-nextjs-standalone.NextjsLayerOverrides.property.llrtTag">llrtTag</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `codeLocation`<sup>Optional</sup> <a name="codeLocation" id="cdk-nextjs-standalone.NextjsLayerOverrides.property.codeLocation"></a>
+
+```typescript
+public readonly codeLocation: string;
+```
+
+- *Type:* string
+
+---
+
+##### `llrtTag`<sup>Optional</sup> <a name="llrtTag" id="cdk-nextjs-standalone.NextjsLayerOverrides.property.llrtTag"></a>
+
+```typescript
+public readonly llrtTag: string;
+```
+
+- *Type:* string
+
+---
+
+### NextjsLayerProps <a name="NextjsLayerProps" id="cdk-nextjs-standalone.NextjsLayerProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-nextjs-standalone.NextjsLayerProps.Initializer"></a>
+
+```typescript
+import { NextjsLayerProps } from 'cdk-nextjs-standalone'
+
+const nextjsLayerProps: NextjsLayerProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-nextjs-standalone.NextjsLayerProps.property.overrides">overrides</a></code> | <code><a href="#cdk-nextjs-standalone.NextjsLayerOverrides">NextjsLayerOverrides</a></code> | Override props for every construct. |
+
+---
+
+##### `overrides`<sup>Optional</sup> <a name="overrides" id="cdk-nextjs-standalone.NextjsLayerProps.property.overrides"></a>
+
+```typescript
+public readonly overrides: NextjsLayerOverrides;
+```
+
+- *Type:* <a href="#cdk-nextjs-standalone.NextjsLayerOverrides">NextjsLayerOverrides</a>
+
+Override props for every construct.
+
+---
+
 ### NextjsOverrides <a name="NextjsOverrides" id="cdk-nextjs-standalone.NextjsOverrides"></a>
 
 Override props for every construct.
@@ -3696,6 +3903,7 @@ const nextjsOverrides: NextjsOverrides = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-nextjs-standalone.NextjsOverrides.property.layer">layer</a></code> | <code><a href="#cdk-nextjs-standalone.NextjsLayerOverrides">NextjsLayerOverrides</a></code> | *No description.* |
 | <code><a href="#cdk-nextjs-standalone.NextjsOverrides.property.nextjs">nextjs</a></code> | <code><a href="#cdk-nextjs-standalone.NextjsConstructOverrides">NextjsConstructOverrides</a></code> | *No description.* |
 | <code><a href="#cdk-nextjs-standalone.NextjsOverrides.property.nextjsBucketDeployment">nextjsBucketDeployment</a></code> | <code><a href="#cdk-nextjs-standalone.NextjsBucketDeploymentOverrides">NextjsBucketDeploymentOverrides</a></code> | *No description.* |
 | <code><a href="#cdk-nextjs-standalone.NextjsOverrides.property.nextjsDistribution">nextjsDistribution</a></code> | <code><a href="#cdk-nextjs-standalone.NextjsDistributionOverrides">NextjsDistributionOverrides</a></code> | *No description.* |
@@ -3705,6 +3913,16 @@ const nextjsOverrides: NextjsOverrides = { ... }
 | <code><a href="#cdk-nextjs-standalone.NextjsOverrides.property.nextjsRevalidation">nextjsRevalidation</a></code> | <code><a href="#cdk-nextjs-standalone.NextjsRevalidationOverrides">NextjsRevalidationOverrides</a></code> | *No description.* |
 | <code><a href="#cdk-nextjs-standalone.NextjsOverrides.property.nextjsServer">nextjsServer</a></code> | <code><a href="#cdk-nextjs-standalone.NextjsServerOverrides">NextjsServerOverrides</a></code> | *No description.* |
 | <code><a href="#cdk-nextjs-standalone.NextjsOverrides.property.nextjsStaticAssets">nextjsStaticAssets</a></code> | <code><a href="#cdk-nextjs-standalone.NextjsStaticAssetOverrides">NextjsStaticAssetOverrides</a></code> | *No description.* |
+
+---
+
+##### `layer`<sup>Optional</sup> <a name="layer" id="cdk-nextjs-standalone.NextjsOverrides.property.layer"></a>
+
+```typescript
+public readonly layer: NextjsLayerOverrides;
+```
+
+- *Type:* <a href="#cdk-nextjs-standalone.NextjsLayerOverrides">NextjsLayerOverrides</a>
 
 ---
 
@@ -4098,6 +4316,7 @@ const nextjsRevalidationProps: NextjsRevalidationProps = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-nextjs-standalone.NextjsRevalidationProps.property.nextBuild">nextBuild</a></code> | <code><a href="#cdk-nextjs-standalone.NextjsBuild">NextjsBuild</a></code> | *No description.* |
+| <code><a href="#cdk-nextjs-standalone.NextjsRevalidationProps.property.nextLayer">nextLayer</a></code> | <code><a href="#cdk-nextjs-standalone.NextjsLayer">NextjsLayer</a></code> | *No description.* |
 | <code><a href="#cdk-nextjs-standalone.NextjsRevalidationProps.property.serverFunction">serverFunction</a></code> | <code><a href="#cdk-nextjs-standalone.NextjsServer">NextjsServer</a></code> | *No description.* |
 | <code><a href="#cdk-nextjs-standalone.NextjsRevalidationProps.property.lambdaOptions">lambdaOptions</a></code> | <code>aws-cdk-lib.aws_lambda.FunctionOptions</code> | Override function properties. |
 | <code><a href="#cdk-nextjs-standalone.NextjsRevalidationProps.property.overrides">overrides</a></code> | <code><a href="#cdk-nextjs-standalone.NextjsRevalidationOverrides">NextjsRevalidationOverrides</a></code> | Override props for every construct. |
@@ -4113,6 +4332,18 @@ public readonly nextBuild: NextjsBuild;
 - *Type:* <a href="#cdk-nextjs-standalone.NextjsBuild">NextjsBuild</a>
 
 > [{@link NextjsBuild }]({@link NextjsBuild })
+
+---
+
+##### `nextLayer`<sup>Required</sup> <a name="nextLayer" id="cdk-nextjs-standalone.NextjsRevalidationProps.property.nextLayer"></a>
+
+```typescript
+public readonly nextLayer: NextjsLayer;
+```
+
+- *Type:* <a href="#cdk-nextjs-standalone.NextjsLayer">NextjsLayer</a>
+
+> [{@link NextjsLayer }]({@link NextjsLayer })
 
 ---
 
@@ -4228,6 +4459,7 @@ const nextjsServerProps: NextjsServerProps = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-nextjs-standalone.NextjsServerProps.property.nextBuild">nextBuild</a></code> | <code><a href="#cdk-nextjs-standalone.NextjsBuild">NextjsBuild</a></code> | *No description.* |
+| <code><a href="#cdk-nextjs-standalone.NextjsServerProps.property.nextLayer">nextLayer</a></code> | <code><a href="#cdk-nextjs-standalone.NextjsLayer">NextjsLayer</a></code> | *No description.* |
 | <code><a href="#cdk-nextjs-standalone.NextjsServerProps.property.staticAssetBucket">staticAssetBucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | Static asset bucket. |
 | <code><a href="#cdk-nextjs-standalone.NextjsServerProps.property.environment">environment</a></code> | <code>{[ key: string ]: string}</code> | *No description.* |
 | <code><a href="#cdk-nextjs-standalone.NextjsServerProps.property.lambda">lambda</a></code> | <code>aws-cdk-lib.aws_lambda.FunctionOptions</code> | Override function properties. |
@@ -4245,6 +4477,18 @@ public readonly nextBuild: NextjsBuild;
 - *Type:* <a href="#cdk-nextjs-standalone.NextjsBuild">NextjsBuild</a>
 
 > [{@link NextjsBuild }]({@link NextjsBuild })
+
+---
+
+##### `nextLayer`<sup>Required</sup> <a name="nextLayer" id="cdk-nextjs-standalone.NextjsServerProps.property.nextLayer"></a>
+
+```typescript
+public readonly nextLayer: NextjsLayer;
+```
+
+- *Type:* <a href="#cdk-nextjs-standalone.NextjsLayer">NextjsLayer</a>
+
+> [{@link NextjsLayer }]({@link NextjsLayer })
 
 ---
 
@@ -7630,6 +7874,7 @@ const optionalNextjsImageProps: OptionalNextjsImageProps = { ... }
 | <code><a href="#cdk-nextjs-standalone.OptionalNextjsImageProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | The S3 bucket holding application images. |
 | <code><a href="#cdk-nextjs-standalone.OptionalNextjsImageProps.property.lambdaOptions">lambdaOptions</a></code> | <code>aws-cdk-lib.aws_lambda.FunctionOptions</code> | Override function properties. |
 | <code><a href="#cdk-nextjs-standalone.OptionalNextjsImageProps.property.nextBuild">nextBuild</a></code> | <code><a href="#cdk-nextjs-standalone.NextjsBuild">NextjsBuild</a></code> | *No description.* |
+| <code><a href="#cdk-nextjs-standalone.OptionalNextjsImageProps.property.nextLayer">nextLayer</a></code> | <code><a href="#cdk-nextjs-standalone.NextjsLayer">NextjsLayer</a></code> | *No description.* |
 | <code><a href="#cdk-nextjs-standalone.OptionalNextjsImageProps.property.overrides">overrides</a></code> | <code><a href="#cdk-nextjs-standalone.NextjsImageOverrides">NextjsImageOverrides</a></code> | Override props for every construct. |
 
 ---
@@ -7665,6 +7910,16 @@ public readonly nextBuild: NextjsBuild;
 ```
 
 - *Type:* <a href="#cdk-nextjs-standalone.NextjsBuild">NextjsBuild</a>
+
+---
+
+##### `nextLayer`<sup>Optional</sup> <a name="nextLayer" id="cdk-nextjs-standalone.OptionalNextjsImageProps.property.nextLayer"></a>
+
+```typescript
+public readonly nextLayer: NextjsLayer;
+```
+
+- *Type:* <a href="#cdk-nextjs-standalone.NextjsLayer">NextjsLayer</a>
 
 ---
 
@@ -7758,6 +8013,7 @@ const optionalNextjsRevalidationProps: OptionalNextjsRevalidationProps = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-nextjs-standalone.OptionalNextjsRevalidationProps.property.lambdaOptions">lambdaOptions</a></code> | <code>aws-cdk-lib.aws_lambda.FunctionOptions</code> | Override function properties. |
 | <code><a href="#cdk-nextjs-standalone.OptionalNextjsRevalidationProps.property.nextBuild">nextBuild</a></code> | <code><a href="#cdk-nextjs-standalone.NextjsBuild">NextjsBuild</a></code> | *No description.* |
+| <code><a href="#cdk-nextjs-standalone.OptionalNextjsRevalidationProps.property.nextLayer">nextLayer</a></code> | <code><a href="#cdk-nextjs-standalone.NextjsLayer">NextjsLayer</a></code> | *No description.* |
 | <code><a href="#cdk-nextjs-standalone.OptionalNextjsRevalidationProps.property.overrides">overrides</a></code> | <code><a href="#cdk-nextjs-standalone.NextjsRevalidationOverrides">NextjsRevalidationOverrides</a></code> | Override props for every construct. |
 | <code><a href="#cdk-nextjs-standalone.OptionalNextjsRevalidationProps.property.serverFunction">serverFunction</a></code> | <code><a href="#cdk-nextjs-standalone.NextjsServer">NextjsServer</a></code> | *No description.* |
 
@@ -7782,6 +8038,16 @@ public readonly nextBuild: NextjsBuild;
 ```
 
 - *Type:* <a href="#cdk-nextjs-standalone.NextjsBuild">NextjsBuild</a>
+
+---
+
+##### `nextLayer`<sup>Optional</sup> <a name="nextLayer" id="cdk-nextjs-standalone.OptionalNextjsRevalidationProps.property.nextLayer"></a>
+
+```typescript
+public readonly nextLayer: NextjsLayer;
+```
+
+- *Type:* <a href="#cdk-nextjs-standalone.NextjsLayer">NextjsLayer</a>
 
 ---
 
@@ -7826,6 +8092,7 @@ const optionalNextjsServerProps: OptionalNextjsServerProps = { ... }
 | <code><a href="#cdk-nextjs-standalone.OptionalNextjsServerProps.property.environment">environment</a></code> | <code>{[ key: string ]: string}</code> | *No description.* |
 | <code><a href="#cdk-nextjs-standalone.OptionalNextjsServerProps.property.lambda">lambda</a></code> | <code>aws-cdk-lib.aws_lambda.FunctionOptions</code> | Override function properties. |
 | <code><a href="#cdk-nextjs-standalone.OptionalNextjsServerProps.property.nextBuild">nextBuild</a></code> | <code><a href="#cdk-nextjs-standalone.NextjsBuild">NextjsBuild</a></code> | *No description.* |
+| <code><a href="#cdk-nextjs-standalone.OptionalNextjsServerProps.property.nextLayer">nextLayer</a></code> | <code><a href="#cdk-nextjs-standalone.NextjsLayer">NextjsLayer</a></code> | *No description.* |
 | <code><a href="#cdk-nextjs-standalone.OptionalNextjsServerProps.property.overrides">overrides</a></code> | <code><a href="#cdk-nextjs-standalone.NextjsServerOverrides">NextjsServerOverrides</a></code> | Override props for every construct. |
 | <code><a href="#cdk-nextjs-standalone.OptionalNextjsServerProps.property.quiet">quiet</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-nextjs-standalone.OptionalNextjsServerProps.property.staticAssetBucket">staticAssetBucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | Static asset bucket. |
@@ -7861,6 +8128,16 @@ public readonly nextBuild: NextjsBuild;
 ```
 
 - *Type:* <a href="#cdk-nextjs-standalone.NextjsBuild">NextjsBuild</a>
+
+---
+
+##### `nextLayer`<sup>Optional</sup> <a name="nextLayer" id="cdk-nextjs-standalone.OptionalNextjsServerProps.property.nextLayer"></a>
+
+```typescript
+public readonly nextLayer: NextjsLayer;
+```
+
+- *Type:* <a href="#cdk-nextjs-standalone.NextjsLayer">NextjsLayer</a>
 
 ---
 

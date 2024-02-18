@@ -15,6 +15,7 @@ import {
   OptionalTablePropsV2,
 } from './generated-structs';
 import { NextjsBuild } from './NextjsBuild';
+import { NextjsLayer } from './NextjsLayer';
 import { NextjsServer } from './NextjsServer';
 import { getCommonFunctionProps } from './utils/common-lambda-props';
 
@@ -44,6 +45,10 @@ export interface NextjsRevalidationProps {
    * @see {@link NextjsServer}
    */
   readonly serverFunction: NextjsServer;
+  /**
+   * @see {@link NextjsLayer}
+   */
+  readonly nextLayer: NextjsLayer;
 }
 
 /**
@@ -106,7 +111,7 @@ export class NextjsRevalidation extends Construct {
   }
 
   private createQueueFunction(): LambdaFunction {
-    const commonFnProps = getCommonFunctionProps(this);
+    const commonFnProps = getCommonFunctionProps(this, [this.props.nextLayer.layerVersion]);
     const fn = new LambdaFunction(this, 'QueueFn', {
       ...commonFnProps,
       // open-next revalidation-function
